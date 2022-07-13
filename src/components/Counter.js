@@ -47,6 +47,7 @@ STEP 6:
 */
 
 import React, { useState } from 'react'; /* STEP 0 */
+import styled from 'styled-components'
 
 export default function Counter() {
   /* STEP 1   
@@ -64,21 +65,30 @@ export default function Counter() {
     /* STEP 6 */
   };
 
-  const style = {
-    fontSize: '1.5em',
-    marginBottom: '0.3em',
-    color: 'royalblue', /* STEP 2 
+  /* STEP 2 
     The 'style' object has the 'color' property hard-coded to "royalblue".
     What the value of 'color' should be instead is a ternary expression that goes like this:
-    If count is even, then "royalblue", else "crimson".*/
-  };
+    If count is even, then "royalblue", else "crimson".
+    
+    Made this a styled component
+    */
+
+  const TextStyle = styled.div`
+    fontSize: 1.5em;
+    marginBottom: 0.3em;
+    color: ${prop => {
+      if (count % 2 === 0) { prop.theme.counterEvenColor }
+      else (prop.theme.counterOddColor)
+    }
+    }; `
+
 
   return (
     <div className='widget-counter container'>
       <h2>Counter</h2>
-      <div id='count' style={style}>
+      <TextStyle id='count'>
         Number 0 is even {/* STEP 3 */}
-      </div>
+      </TextStyle>
       <div>
         <button id='increment' onClick={increment}>Increment</button>
         <button id='decrement' onClick={decrement}>Decrement</button>
