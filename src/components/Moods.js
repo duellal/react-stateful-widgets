@@ -67,11 +67,11 @@ export default function Moods() {
     setMood(initialMood)
   };
 
-  const style = {
-    fontSize: '1.5em',
-    marginBottom: '0.3em',
-    color: mood === happyMood ? 'royalblue' : 'crimson', /* STEP 2 */
-  };
+  // const style = {
+  //   fontSize: '1.5em',
+  //   marginBottom: '0.3em',
+  //   color: mood === happyMood ? 'royalblue' : 'crimson', /* STEP 2 */
+  // };
 
   return (
     <div className='widget-moods container'>
