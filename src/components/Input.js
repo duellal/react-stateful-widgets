@@ -37,6 +37,21 @@ STEP 6:
 import React, { useState } from 'react'; /* STEP 0 */
 import styled from 'styled-components'
 
+const InputStyles = styled.div`
+font-size: ${prop => {
+    return prop.theme.fontSize
+  }};
+margin-bottom: ${prop => {
+    return prop.theme.marginBtm
+  }};
+color: ${prop => {
+    if (prop.input.length > 10) {
+      return prop.theme.crimson
+    }
+    return prop.theme.royalBlue
+  }}
+`
+
 export default function Input() {
   /* STEP 1 */
   const [inputValue, setInputValue] = useState('')
@@ -55,18 +70,20 @@ export default function Input() {
     setInputValue('')
   };
 
-  const style = {
-    fontSize: '1.5em',
-    marginBottom: '0.3em',
-    color: inputValue.length > 10 ? 'crimson' : 'royalblue', /* STEP 2 */
-  };
+  // const style = {
+  //   fontSize: '1.5em',
+  //   marginBottom: '0.3em',
+  //   color: inputValue.length > 10 ? 'crimson' : 'royalblue', /* STEP 2 */
+  // };
 
   return (
     <div className='widget-input container'>
       <h2>Input</h2>
-      <div id='output' style={style}> {/* STEP 3 */}
+      {/* <div id='output' style={style}> STEP 3 */}
+      <InputStyles input={inputValue}>
         {inputValue.toUpperCase()}
-      </div>
+        {/* </div> */}
+      </InputStyles>
       <div> {''}
         <input id='input' type='text' onChange={changeInput} value={inputValue} /> {/* STEP 6 */}
         <button id='resetInput' onClick={reset}>Reset</button>
