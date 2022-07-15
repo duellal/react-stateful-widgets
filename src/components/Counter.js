@@ -77,16 +77,7 @@ export default function Counter() {
     setCount(0)
   };
 
-  /* STEP 2 */
-
-  // const TextStyle = styled.div`
-  //   fontSize: 1.5em;
-  //   marginBottom: 0.3em;
-  //   color: ${prop => {
-  //     if (count % 2 === 0) { prop.theme.counterEvenColor }
-  //     else (prop.theme.counterOddColor)
-  //   }
-  //   }; `
+  /* STEP 2 - added styled components above function for this */
 
   // const style = {
   //   fontSize: '1.5em',
