@@ -38,7 +38,6 @@ STEP 4:
 */
 
 import React, { useState } from 'react'; /* STEP 0 */
-import styled from 'styled-components'
 
 export default function Spinner() {
   /* STEP 1 */
