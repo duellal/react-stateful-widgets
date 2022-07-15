@@ -50,45 +50,49 @@ import React, { useState } from 'react'; /* STEP 0 */
 import styled from 'styled-components'
 
 export default function Counter() {
-  /* STEP 1   
-  Using the state hook, create a 'count', 'setCount' pair.
-  The 'count' state should be initialized to the number zero.*/
+  /* STEP 1 */
   const [count, setCount] = useState(0)
 
   const increment = () => {
     /* STEP 4 */
+    setCount(count + 1)
   };
   const decrement = () => {
     /* STEP 5 */
+    setCount(count - 1)
   };
   const reset = () => {
     /* STEP 6 */
+    setCount(0)
   };
 
-  /* STEP 2 
-    The 'style' object has the 'color' property hard-coded to "royalblue".
-    What the value of 'color' should be instead is a ternary expression that goes like this:
-    If count is even, then "royalblue", else "crimson".
-    
-    Made this a styled component
-    */
+  /* STEP 2 */
 
-  const TextStyle = styled.div`
-    fontSize: 1.5em;
-    marginBottom: 0.3em;
-    color: ${prop => {
-      if (count % 2 === 0) { prop.theme.counterEvenColor }
-      else (prop.theme.counterOddColor)
-    }
-    }; `
+  // const TextStyle = styled.div`
+  //   fontSize: 1.5em;
+  //   marginBottom: 0.3em;
+  //   color: ${prop => {
+  //     if (count % 2 === 0) { prop.theme.counterEvenColor }
+  //     else (prop.theme.counterOddColor)
+  //   }
+  //   }; `
+
+  const style = {
+    fontSize: '1.5em',
+    marginBottom: '0.3em',
+    color: (count % 2 === 0) ? 'royalblue' : 'crimson', /* STEP 2 */
+  };
 
 
   return (
     <div className='widget-counter container'>
       <h2>Counter</h2>
-      <TextStyle id='count'>
-        Number 0 is even {/* STEP 3 */}
-      </TextStyle>
+      {/* <TextStyle id='count'> */}
+      <div id='count' style={style}>
+        Number {count} is {(count % 2 === 0) ? 'even' : 'odd'}
+        {/* STEP 3 */}
+        {/* </TextStyle> */}
+      </div>
       <div>
         <button id='increment' onClick={increment}>Increment</button>
         <button id='decrement' onClick={decrement}>Decrement</button>
