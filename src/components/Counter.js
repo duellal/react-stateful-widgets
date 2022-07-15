@@ -49,6 +49,17 @@ STEP 6:
 import React, { useState } from 'react'; /* STEP 0 */
 import styled from 'styled-components'
 
+const TextStyle = styled.div`
+font-size: ${prop => { return prop.theme.counterFontSize }};
+margin-bottom: ${prop => { return prop.theme.counterMarginBtm }};
+color: ${prop => {
+    if (prop.count % 2 === 0) {
+      return prop.theme.counterEvenColor
+    }
+    return prop.theme.counterOddColor
+  }
+  }; `;
+
 export default function Counter() {
   /* STEP 1 */
   const [count, setCount] = useState(0)
@@ -77,22 +88,22 @@ export default function Counter() {
   //   }
   //   }; `
 
-  const style = {
-    fontSize: '1.5em',
-    marginBottom: '0.3em',
-    color: (count % 2 === 0) ? 'royalblue' : 'crimson', /* STEP 2 */
-  };
+  // const style = {
+  //   fontSize: '1.5em',
+  //   marginBottom: '0.3em',
+  //   color: (count % 2 === 0) ? 'royalblue' : 'crimson', /* STEP 2 */
+  // };
 
 
   return (
     <div className='widget-counter container'>
       <h2>Counter</h2>
-      {/* <TextStyle id='count'> */}
-      <div id='count' style={style}>
+      <TextStyle id='count' count={count}>
+        {/* <div id='count' style={style}> */}
         Number {count} is {(count % 2 === 0) ? 'even' : 'odd'}
         {/* STEP 3 */}
-        {/* </TextStyle> */}
-      </div>
+      </TextStyle>
+      {/* </div> */}
       <div>
         <button id='increment' onClick={increment}>Increment</button>
         <button id='decrement' onClick={decrement}>Decrement</button>
