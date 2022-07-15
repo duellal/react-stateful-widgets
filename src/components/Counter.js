@@ -50,13 +50,13 @@ import React, { useState } from 'react'; /* STEP 0 */
 import styled from 'styled-components'
 
 const TextStyle = styled.div`
-font-size: ${prop => { return prop.theme.counterFontSize }};
-margin-bottom: ${prop => { return prop.theme.counterMarginBtm }};
+font-size: ${prop => { return prop.theme.fontSize }};
+margin-bottom: ${prop => { return prop.theme.marginBtm }};
 color: ${prop => {
     if (prop.count % 2 === 0) {
-      return prop.theme.counterEvenColor
+      return prop.theme.royalBlue
     }
-    return prop.theme.counterOddColor
+    return prop.theme.crimson
   }
   }; `;
 
